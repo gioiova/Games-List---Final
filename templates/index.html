@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="background"></div>
+    <div class="container">
+        <div class="content">
+            <h2 class="logo"><i class='bx bx-qr-scan' ></i>GameLand</h2>
+            <div class="text-sci">
+                <h2>Welcome <br><span>To GameLand</span></h2>
+                <p>
+Do you want to discover new games and have your own list of the best games for everyone around the world to see? Then you are in the right place </p>
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="#"><i class='bx bxl-facebook' ></i></a>
+                    <a href="#"><i class='bx bxl-instagram' ></i></a>
+                    <a href="#"><i class='bx bxl-twitter' ></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="logreg-box">
+            <div class="form-box login">
+                <form action="#">
+                    <h2>Sign In</h2>
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-envelope' ></i></span>
+                        <input type="email" id="logmail" name="logmail" required class="email-log">
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-box box-box">
+                        <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                        <input type="password" id="logpassword" name="logpassword" required class="password-log">
+                        <label>Password</label>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Remember me</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" formmethod="post" class="btn login-btn">Sign In</button>
+
+                    <div class="login-register">
+                        <p>Don't have an account? <a href="#" class="register-link">Sign Up</a></p>
+                    </div>
+                    <br>
+                    <br>
+                    {%with messages = get_flashed_messages(with_categories=true)%}
+    {%if  messages%}
+        {%for category, message in messages%}
+        {%if category == 'error'%}
+            <div align="center" class="alert alert-error alter-dismissible fade show" role="error" >
+                {{message}}
+
+            </div>
+        {%else%}
+         <div align="center" class="alert alert-success alter-dismissible fade show" role="success" >
+                {{message}}
+
+            </div>
+        {%endif%}
+        {%endfor%}
+    {%endif%}
+    {%endwith%}
+                </form>
+            </div>
+
+            <div class="form-box register hidden">
+                <form action="#">
+                    <h2>Sign Up</h2>
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-user' ></i></i></span>
+                        <input type="text" name="name" id="name" formmethod="post" required class="name-reg">
+                        <label>Name</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-envelope' ></i></span>
+                        <input type="email" id="email" name="email" formmethod="post" required class="email-reg">
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                        <input id="password" name="password" formmethod="post" type="password" required class="password-reg">
+                        <label>Password</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-repeat' ></i></i></span>
+                        <input type="password" id="password1" name="password1" required class="repeat-reg">
+                        <label>Repeat Password</label>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">I agree to the terms & conditions</label>
+                    </div>
+
+                    <button type="submit" formmethod="post" class="btn register-btn">Sign Up</button>
+                    <div class="login-register">
+                        <p>Already have an account? <a href="#"  class="login-link">Sign In</a></p>
+                    </div>
+                    <br>
+                    <br>
+                    {%with messages = get_flashed_messages(with_categories=true)%}
+    {%if  messages%}
+        {%for category, message in messages%}
+        {%if category == 'error'%}
+            <div align="center" class="alert alert-error alter-dismissible fade show" role="error" >
+                {{message}}
+            </div>
+        {%else%}
+         <div align="center" class="alert alert-success alter-dismissible fade show" role="success" >
+                {{message}}
+
+            </div>
+        {%endif%}
+        {%endfor%}
+    {%endif%}
+    {%endwith%}
+                </form>
+
+            </div>
+        </div>
+    </div>
+   <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

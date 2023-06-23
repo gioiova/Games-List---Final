@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='list.css') }}">
+</head>
+<body>
+    <header class="header">
+      <nav class="navbar">
+          <a href="{{url_for('homee')}}">Home</a>
+          <a href="{{url_for('database')}}">Sources</a>
+          <a href="{{url_for('scrap')}}">Create Tier List</a>
+          <a href="{{url_for('logout')}}">Log out</a>
+      </nav>
+
+          <div>
+              <center><img  src="static\profile3.png" width="30" height="30" ></center>
+                 <FONT COLOR="#FFFFFF"><h3  class="mt-2 mb-0 mail">{{session['logmail']}}</h3></FONT>
+              </div>
+
+</div>
+
+    </header>
+    <div class="overlay hidden"></div>
+    <div class="add-div hidden">
+      <p class="warning"></p>
+    </div>
+     <div class="text-center">
+</div>
+        <font color="#FFFFFF"><h1 ALIGN="center" >Source & Database</h1></font>
+
+
+    <br>
+<div class="download_div oto" align="center" style="width: 1300px;" >
+    <font color="#FFFFFF"><p><h3>
+Do you want to see best games right now? if you want to download new tier list database <a style="background-color:White" href="static\games_db.zip" download> Click Here!</a>
+        you will see here top 100 games nowadays their ranking and some information about this game hope it will be useful for you <3</p></h3></font>
+    </div>
+    <center><img src="static\softonico1.png" width="750" height="300" border="4px solid black"></center>
+     <h2><font color="#ffffff"><center><p class="source">Source: <a  href="https://en.softonic.com/downloads/game-list">Softonic</a></p></center></font></h2>
+
+
+   <script src="{{ url_for('static', filename='list.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='list.css') }}">
+</head>
+<body>
+    <header class="header">
+      <nav class="navbar">
+          <a href="{{url_for('homee')}}">Home</a>
+          <a href="{{url_for('database')}}">Sources</a>
+          <a href="{{url_for('scrap')}}">Create Tier List</a>
+          <a href="{{url_for('logout')}}">Log out</a>
+      </nav>
+
+             <div>
+                  <center><img align="center" src="static\profile3.png" width="30" height="30" ></center>
+                 <FONT COLOR="#FFFFFF"><h3  class="mt-2 mb-0">{{session['logmail']}}</h3></FONT>
+              </div>
+<i class='fa fa-user' style='color:#050505'></i>
+
+      <button class="plus">+</button>
+    </header>
+    <div class="overlay hidden"></div>
+    <div class="add-div hidden">
+      <button class="close-modal">&times;</button>
+      <h1>Fill blank Inputs to add Game</h1>
+        <form>
+      <input type="text" formmethod="post" id="gamegame" name="gamegame" placeholder="Game" class="game">
+      <input type="text" formmethod="post" placeholder="Ranking" id="ranking1" name="ranking1" class="rating">
+      <input type="text"formmethod="post" placeholder="Info" id="info1" name="info1" class="info">
+      <button formmethod="post" id="addgame" name="addgame" class="btn-add">Add Game</button>
+      <p class="warning"></p>
+            </form>
+    </div>
+    <table>
+    <font color="#FFFFFF"><h1 ALIGN="   center" >Create Your Game Tier List</h1></font>
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Info</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    {%with messages = get_flashed_messages(with_categories=true)%}
+    {%if  messages%}
+        {%for category, message in messages%}
+        {%if category == 'error'%}
+            <div align="center" class="alert alert-error alter-dismissible fade show" role="error" >
+                {{message}}
+            </div>
+        {%else%}
+         <div align="center" class="alert alert-success alter-dismissible fade show" role="success" >
+                {{message}}
+
+            </div>
+        {%endif%}
+        {%endfor%}
+    {%endif%}
+    {%endwith%}
+   <script src="{{ url_for('static', filename='list.js') }}"></script>
+</body>
+</html>

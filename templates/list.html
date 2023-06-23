@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='list.css') }}">
+</head>
+<body>
+    <header class="header">
+      <nav class="navbar">
+          <a href="{{url_for('homee')}}">Home</a>
+          <a href="{{url_for('database')}}">Sources</a>
+          <a href="{{url_for('scrap')}}">Create Tier List</a>
+          <a href="{{url_for('logout')}}">Log out</a>
+      </nav>
+        <FONT COLOR="#FFFFFF"><h3  class="mt-2 mb-0">{{session['logmail']}}</h3></FONT>
+    </header>
+    <div class="overlay hidden"></div>
+    <div class="add-div hidden">
+      <p class="warning"></p>
+    </div>
+    <table>
+        <caption>Game Tier List</caption>
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Info</th>
+          </tr>
+
+
+        </thead>
+        <tbody>
+        </tbody>
+        {% for game in games %}
+			<tr>
+				<th>{{ game.Title }}</th>
+				<th>{{ game.Ranking }}</th>
+				<th>${{ game.Info }}</th>
+			</tr>
+			{% endfor %}
+      </table>
+   <script src="{{ url_for('static', filename='list.js') }}"></script>
+</body>
+</html>
